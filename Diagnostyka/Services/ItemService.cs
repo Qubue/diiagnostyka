@@ -16,6 +16,6 @@ internal class ItemService : IItemService
     public async Task<IReadOnlyCollection<ItemDto>> GetAllAsync(CancellationToken cancellationToken)
     {
         var items = await _repository.GetAllAsync(cancellationToken);
-        return items.Select(i => new ItemDto(i)).ToList();
+        return items.Select(i => new ItemDto(i.Id, i.Color, i.Name, i.Notes, i.Code)).ToList();
     }
 }

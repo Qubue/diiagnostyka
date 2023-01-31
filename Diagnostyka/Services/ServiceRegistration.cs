@@ -7,5 +7,6 @@ public static class ServiceRegistration
     public static void RegisterApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IItemService, ItemService>();
+        services.AddScoped<IUserCredentialManager, UserCredentialManager>();
     }
 }

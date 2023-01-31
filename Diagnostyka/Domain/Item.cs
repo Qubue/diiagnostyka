@@ -1,6 +1,6 @@
 ﻿namespace Domain.Core;
 
-public class Item
+internal class Item
 {
     public long Id { get; init; }
     public string Color { get; init; }
