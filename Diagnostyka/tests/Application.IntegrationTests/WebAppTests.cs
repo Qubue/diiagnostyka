@@ -1,10 +1,10 @@
 using System.Net;
 using System.Net.Http.Json;
+using Application.Identity;
 using Diagonostyka.WebApi.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
-using Services.Models;
 using Xunit;
 
 namespace Application.IntegrationTests;

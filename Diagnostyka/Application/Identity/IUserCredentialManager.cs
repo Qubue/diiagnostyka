@@ -1,6 +1,4 @@
-﻿using Services.Models;
-
-namespace Application.Identity;
+﻿namespace Application.Identity;
 
 public interface IUserCredentialManager
 {

@@ -1,8 +1,6 @@
 ﻿using Application.Identity;
 using Diagonostyka.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Services;
-using Services.Models;
 
 namespace Diagonostyka.WebApi.Controllers;
 

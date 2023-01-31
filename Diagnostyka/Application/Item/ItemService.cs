@@ -1,6 +1,4 @@
-﻿using Services.Models;
-
-namespace Application.Item;
+﻿namespace Application.Item;
 
 public class ItemService : IItemService
 {
