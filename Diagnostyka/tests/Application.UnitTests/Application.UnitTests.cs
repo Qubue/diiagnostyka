@@ -1,11 +1,10 @@
-﻿using AutoFixture;
-using Domain.Core;
+﻿using Application.Item;
+using AutoFixture;
 using FluentAssertions;
 using NSubstitute;
-using Services;
 using Xunit;
 
-namespace Application.Tests;
+namespace Application.UnitTests;
 
 public class ItemServiceTests
 {
@@ -22,7 +21,7 @@ public class ItemServiceTests
     [Fact]
     public async Task ItemServiceTests_GetAllItems()
     {
-        var items = _fixture.CreateMany<Item>(10).ToList();
+        var items = _fixture.CreateMany<Domain.Item>(10).ToList();
         _repository.GetAllAsync(_ct).Returns(items);
 
         var result = await _itemService.GetAllAsync(_ct);

@@ -1,11 +1,11 @@
-﻿namespace Domain.Core.Entities;
+﻿namespace Domain.Entities;
 
-internal class ItemEntity
+public sealed class ItemEntity
 {
     public int Id { get; set; }
     public string Name { get; init; }
     public string Notes { get; init; }
     public string Code { get; set; }
     public int ColorId { get; set; }
-    public virtual ColorEntity Color { get; set; }
+    public ColorEntity Color { get; set; }
 }

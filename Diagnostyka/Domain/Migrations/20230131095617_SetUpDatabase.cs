@@ -15,7 +15,7 @@ namespace Domain.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("SqlServer:Application", "1, 1"),
                     Color = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
@@ -28,7 +28,7 @@ namespace Domain.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("SqlServer:Application", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),

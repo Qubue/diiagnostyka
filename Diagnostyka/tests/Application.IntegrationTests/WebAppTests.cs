@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Services.Models;
 using Xunit;
 
-namespace Diagnostyka.WebApi.Tests;
+namespace Application.IntegrationTests;
 
 public class WebAppTests
 {

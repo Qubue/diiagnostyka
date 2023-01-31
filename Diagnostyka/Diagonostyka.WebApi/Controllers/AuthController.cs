@@ -1,4 +1,5 @@
-﻿using Diagonostyka.WebApi.Models;
+﻿using Application.Identity;
+using Diagonostyka.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.Models;

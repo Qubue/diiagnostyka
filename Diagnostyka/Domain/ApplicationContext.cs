@@ -1,9 +1,9 @@
-﻿using Domain.Core.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Core;
+namespace Domain;
 
-internal class ApplicationContext : DbContext
+public class ApplicationContext : DbContext
 {
     public ApplicationContext()
     {
@@ -23,7 +23,7 @@ internal class ApplicationContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ItemEntity>()
-            .HasOne<ColorEntity>(s => s.Color)
+            .HasOne(s => s.Color)
             .WithMany(g => g.Items);
 
         modelBuilder.Entity<ItemEntity>()

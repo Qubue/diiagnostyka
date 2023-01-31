@@ -1,9 +1,10 @@
 using System.Text;
+using Application;
 using Diagonostyka.WebApi;
+using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Persistence;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,8 +60,8 @@ builder.Services.AddSwaggerGen(c=>
     });
 });
 
-builder.Services.RegisterPersistence();
-builder.Services.RegisterApplicationServices();
+builder.Services.RegisterApplication();
+builder.Services.RegisterInfrastructure();
 
 var app = builder.Build();
 

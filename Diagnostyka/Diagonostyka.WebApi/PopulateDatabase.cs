@@ -1,5 +1,5 @@
-﻿using Domain.Core;
-using Domain.Core.Entities;
+﻿using Domain;
+using Domain.Entities;
 
 namespace Diagonostyka.WebApi;
 
