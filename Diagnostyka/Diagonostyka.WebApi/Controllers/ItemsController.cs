@@ -34,7 +34,7 @@ public class ItemsController : ControllerBase
         var result = await _itemService.DeleteAsync(id, cancellationToken);
         return result ? Ok() : NotFound();
     }
-    
+
     [HttpPatch("{id}")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "administrator")]
     [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]

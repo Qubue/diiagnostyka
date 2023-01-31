@@ -1,4 +1,7 @@
-﻿namespace Domain.Core;
+﻿using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+
+namespace Domain.Core;
 
 internal interface IItemRepository
 {
