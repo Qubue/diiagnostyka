@@ -30,10 +30,37 @@ internal class ItemItemRepository : IItemRepository
         }).ToList();
     }
 
-    public async Task DeleteAsync(int id, CancellationToken cancellationToken)
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
     {
-        var itemEntity = new ItemEntity { Id = id };
-        _dbContext.Entry(itemEntity).State = EntityState.Deleted;
+        try
+        {
+            var itemEntity = new ItemEntity { Id = id };
+            _dbContext.Entry(itemEntity).State = EntityState.Deleted;
+            await _dbContext.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            return false;
+        }
+    }
+
+    public async Task UpdateAsync(Item item, CancellationToken cancellationToken)
+    {
+        var itemEntity = await _dbContext.Items.FirstOrDefaultAsync(i => i.Id == item.Id, cancellationToken);
+        if (itemEntity is null)
+            throw new Exception();
+
+        var color = await _dbContext.Colors.FirstAsync(c => c.Color == item.Color, cancellationToken);
+        itemEntity = new ItemEntity
+        {
+            Code = item.Code,
+            Name = item.Name,
+            Notes = item.Notes,
+            ColorId = color.Id,
+            Id = color.Id,
+        };
+
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }

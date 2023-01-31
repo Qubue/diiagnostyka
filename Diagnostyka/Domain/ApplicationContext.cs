@@ -27,16 +27,16 @@ internal class ApplicationContext : DbContext
             .WithMany(g => g.Items);
 
         modelBuilder.Entity<ItemEntity>()
-            .Property(ie => ie.Code).HasMaxLength(255);
+            .Property(ie => ie.Code).HasMaxLength(12);
         
         modelBuilder.Entity<ItemEntity>()
-            .Property(ie => ie.Name).HasMaxLength(255);
+            .Property(ie => ie.Name).HasMaxLength(200);
             
         modelBuilder.Entity<ItemEntity>()
             .Property(ie => ie.Notes).HasMaxLength(1000);
         
         modelBuilder.Entity<ColorEntity>()
-            .Property(ie => ie.Color).HasMaxLength(255);
+            .Property(ie => ie.Color).HasMaxLength(25);
     }
 
     public DbSet<ColorEntity> Colors { get; set; }
