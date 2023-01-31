@@ -24,6 +24,24 @@ public class UserCredentialManager : IUserCredentialManager
 
             return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(tokeOptions));
         }
+        
+        if (user.UserName == "userNameAdmin" && user.Password == "password")
+        {
+            var claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.Role,"administrator"));
+
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("someKeysomeKeysomeKeysomeKeysomeKeysomeKeysomeKey"));
+            var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var tokeOptions = new JwtSecurityToken(
+                issuer: "https://localhost:7230/",
+                audience: "https://localhost:7230/",
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(5),
+                signingCredentials: signinCredentials
+            );
+
+            return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(tokeOptions));
+        }
 
         return Task.FromResult(string.Empty);
     }

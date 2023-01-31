@@ -8,7 +8,7 @@ public static class PersistenceRegistration
 {
         public static void RegisterPersistence(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IItemRepository, ItemItemRepository>();
             services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase("database"));
         }
 }

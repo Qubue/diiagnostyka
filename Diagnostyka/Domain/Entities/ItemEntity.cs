@@ -2,7 +2,7 @@
 
 internal class ItemEntity
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; init; }
     public string Notes { get; init; }
     public string Code { get; set; }

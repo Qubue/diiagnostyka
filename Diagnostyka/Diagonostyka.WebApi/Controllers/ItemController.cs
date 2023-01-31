@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -22,5 +23,16 @@ public class ItemsController : ControllerBase
     {
         var result = await _itemService.GetAllAsync(cancellationToken);
         return Ok(result);
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "administrator")]
+    [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(void), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteItem(int id, CancellationToken cancellationToken)
+    {
+        await _itemService.DeleteAsync(id, cancellationToken);
+
+        return Ok();
     }
 }
